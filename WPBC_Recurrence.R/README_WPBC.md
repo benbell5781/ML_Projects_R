@@ -22,7 +22,7 @@ The Wisconsin Prognostic Breast Cancer data come from the UCI Machine Learning R
 - **Four patients with missing `pnodes` were dropped** (under 2.1%), leaving **194 patients**: 148 without recurrence and 46 with (23.7%).
 - **The follow-up time column is not used.** Using it as a predictor would leak information only known in hindsight, and modelling it properly needs survival analysis (see Limitations).
 
-The cleaned file `data/wpbc_clean.csv` is derived from the public data. [Check the licence terms on the UCI dataset page before committing it. If in doubt, link to the source and let readers rebuild it. Add your cleaning step to `analysis.R` so the file can be reproduced.]
+The cleaned file `data/wpbc_clean.csv` is derived from the public dataset from the UCI
 
 ## Method
 
@@ -73,15 +73,12 @@ Other findings:
 - **Collinearity.** Several "worst" nuclear features proxy for the same tumour-severity signal, so which one a method selects is somewhat arbitrary.
 - **Not clinical advice.** This is a methods exercise on a public benchmark data set, not a validated clinical tool.
 
-## Repository structure
+## Folder structure
 
 ```
-wisconsin-breast-cancer-recurrence/
+WPBC_Recurrence.R/
   README.md
-  analysis.R               # standalone script: data preparation, models, evaluation
-  report.pdf               # the full written report [check the course allows sharing it]
-  data/
-    wpbc_clean.csv         # cleaned data set (see Data)
+  WPBCR_Code.R               # standalone script: data preparation, models, evaluation
 ```
 
 ### Requirements
@@ -90,13 +87,13 @@ R (the report was produced with R 4.3.3) and the packages `rpart`, `randomForest
 
 ### Running
 
-1. Place `wpbc_clean.csv` in `data/` (or rebuild it as described in *Data*).
-2. Set the working directory to the repository root and run `analysis.R` from top to bottom.
+1. Rebuild wbpc_clean.csv manually with software of choice (R or SQL recommended) using 'TH.data' or download from UCI site
+2. Set the working directory to the repository root and run `WPBCR_Code.R` from top to bottom.
 3. Results depend on the random seed. The train/test split uses `set.seed(1)`, and the forests and boosting are random, so small differences between runs are expected unless seeds are set for those steps too.
 
 ## Authorship and tools
 
-[State what you wrote yourself and what you adapted, and exactly where AI tools helped, for example "Claude (Anthropic) assisted with ... ". Delete this line if no AI tools were used. Make sure it matches what you declared to the course.]
+[Claude (Anthropic) Assisted with code descriptions in WBBCR_Code.R, Class balanced Random Forest and Boosting Specifications]
 
 ## References
 
